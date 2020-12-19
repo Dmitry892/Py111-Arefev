@@ -12,7 +12,7 @@ def enqueue(elem: Any) -> None:
     :return: Nothing
     """
     print(elem)
-    return None
+    return elem
 
 
 def dequeue() -> Any:
