@@ -11,8 +11,8 @@ def push(elem: Any) -> None:
     :param elem: element to be pushed
     :return: Nothing
     """
-    print(elem)
-    return None
+
+    return elem
 
 
 def pop() -> Any:
