@@ -1,8 +1,10 @@
 """
 My little Queue
+Арефьев Дмитрий
 """
 from typing import Any
 
+queue = []
 
 def enqueue(elem: Any) -> None:
     """
@@ -11,7 +13,7 @@ def enqueue(elem: Any) -> None:
     :param elem: element to be added
     :return: Nothing
     """
-    print(elem)
+    queue.append(elem)
     return elem
 
 
@@ -21,6 +23,8 @@ def dequeue() -> Any:
 
     :return: dequeued element
     """
+    if len(queue):
+        return queue.pop(0)
     return None
 
 
@@ -31,7 +35,8 @@ def peek(ind: int = 0) -> Any:
     :param ind: index of element (count from the beginning)
     :return: peeked element
     """
-    print(ind)
+    if 0 <= ind <= len(queue):
+        return queue[ind]
     return None
 
 
@@ -41,4 +46,6 @@ def clear() -> None:
 
     :return: None
     """
+    global queue
+    queue.clear()
     return None
