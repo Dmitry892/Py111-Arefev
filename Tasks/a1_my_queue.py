@@ -35,7 +35,7 @@ def peek(ind: int = 0) -> Any:
     :param ind: index of element (count from the beginning)
     :return: peeked element
     """
-    if 0 <= ind <= len(queue):
+    if 0 <= ind <= len(queue)-1:
         return queue[ind]
     return None
 
