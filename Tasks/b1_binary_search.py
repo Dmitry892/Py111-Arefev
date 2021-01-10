@@ -11,18 +11,17 @@ def binary_search(elem: int, arr: Sequence) -> Optional[int]:
     :param arr: array where element is to be found
     :return: Index of element if it's presented in the arr, None otherwise
     """
-    if elem in arr or not arr:
+    if arr:
         first = 0
         last = len(arr) - 1
-        index = -1
-        while first <= last and index == -1:
+        while first <= last:
             mid = (first + last) // 2
             if arr[mid] == elem:
-                index = mid
-            else:
-                if elem < arr[mid]:
-                    last = mid - 1
-                else:
-                    first = mid + 1
-        return index
+                return mid
+            elif elem < arr[mid]:
+                last = mid - 1
+            elif elem > arr[mid]:
+                first = mid + 1
+        else:
+            return None
     return None
