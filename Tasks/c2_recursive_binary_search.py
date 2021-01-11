@@ -1,5 +1,6 @@
 from typing import Sequence, Optional
 
+arr = [1,2,3,4,5,7,10]
 
 def binary_search(elem: int, arr: Sequence) -> Optional[int]:
     """
@@ -9,15 +10,18 @@ def binary_search(elem: int, arr: Sequence) -> Optional[int]:
     :param arr: array where element is to be found
     :return: Index of element if it's presented in the arr, None otherwise
     """
-    if elem not in arr:
-        return None
     low = 0
     high = len(arr) - 1
     mid = (low + high) // 2
-    if arr[mid] == elem:
-        return mid
-    else:
-        if elem < arr[mid]:
+
+    if arr:
+        if arr[mid] == elem:
+            return mid
+        elif elem < arr[mid]:
             return binary_search(elem, arr[:mid])
-        else:
+        elif elem > arr[mid]:
             return binary_search(elem, arr[mid + 1:]) + (mid + 1)
+    return None
+
+
+print(binary_search(5, arr))
