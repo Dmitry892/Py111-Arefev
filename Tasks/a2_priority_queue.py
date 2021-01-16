@@ -15,7 +15,8 @@ def enqueue(elem: Any, priority: int = 0) -> None:
     :param elem: element to be added
     :return: Nothing
     """
-    _priority.append([elem, priority])
+    _priority.append((elem, priority))
+    _priority.sort(key=lambda priority: priority[1])
     return None
 
 
@@ -26,13 +27,7 @@ def dequeue() -> Any:
     :return: dequeued element
     """
     if len(_priority):
-        value = []
-        _priority.sort(key=lambda priority: priority[1])
-        for i in _priority:
-            value.append(i[0])
-        _priority.pop(0)
-        while value:
-            return value.pop(0)
+        return _priority.pop(0)[0]
     return None
 
 
@@ -44,7 +39,7 @@ def peek(ind: int = 0, priority: int = 0) -> Any:
     :return: peeked element
     """
     if len(_priority):
-        return _priority[ind][priority]
+        return _priority[ind][0]
     return None
 
 
